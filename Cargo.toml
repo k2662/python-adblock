@@ -13,8 +13,8 @@ repository = "https://github.com/ArniDagur/python-adblock"
 debug = true
 
 [dependencies]
-adblock = { version = "=0.5.6", default-features = false, features = ["full-regex-handling", "embedded-domain-resolver"] }
-pyo3 = { version = "0.16", features = ["abi3-py37", "extension-module"] }
+adblock = { version = "=0.8.5", default-features = false, features = ["full-regex-handling", "embedded-domain-resolver"] }
+pyo3 = { version = "0.20", features = ["abi3-py312", "extension-module"] }
 
 [lib]
 name = "adblock"
