@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Install latest nightly
         uses: actions-rs/toolchain@v1
@@ -43,11 +43,11 @@ jobs:
     runs-on: macos-latest
     needs: lint
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.7
+          python-version: 3.12.1
 
       - name: Install Rust toolchain
         uses: actions-rs/toolchain@v1
@@ -85,7 +85,7 @@ jobs:
         shell: bash
 
       - name: Upload wheels
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: wheels
           path: dist
@@ -103,9 +103,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.7
+          python-version: 3.12.1
           architecture: ${{ matrix.platform.python-architecture }}
 
       - name: Install Rust toolchain
@@ -134,7 +134,7 @@ jobs:
         shell: bash
 
       - name: Upload wheels
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: wheels
           path: dist
@@ -151,34 +151,34 @@ jobs:
               manylinux: "2014",
               target: "x86_64-unknown-linux-gnu",
               arch: "x86_64",
-              python-version: "3.7"
+              python-version: "3.12.1"
             },
             {
               toolchain: "nightly",
               manylinux: "2014",
               target: "x86_64-unknown-linux-gnu",
               arch: "x86_64",
-              python-version: "3.7"
+              python-version: "3.12.1"
             },
             {
               toolchain: "stable",
               manylinux: "2014",
               target: "x86_64-unknown-linux-gnu",
               arch: "x86_64",
-              python-version: "3.7"
+              python-version: "3.12.1"
             },
             {
               toolchain: "stable",
               manylinux: "2014",
               target: "x86_64-unknown-linux-gnu",
               arch: "x86_64",
-              python-version: "3.11"
+              python-version: "3.12.1"
             }
           ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.platform.python-version }}
 
@@ -210,7 +210,7 @@ jobs:
 
       - name: Upload wheels
         if: matrix.platform.toolchain == 'stable'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: wheels
           path: dist
@@ -234,11 +234,11 @@ jobs:
             },
           ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.7
+          python-version: 3.12.1
 
       - name: Build Wheels
         run: |
@@ -278,7 +278,7 @@ jobs:
         shell: bash
 
       - name: Upload wheels
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: wheels
           path: dist
